@@ -14,10 +14,9 @@ const ProductItem = ({ product }) => {
       <Styles.ProductImage imageUrl={product.imageUrl}>
         <CustomButton startIcon={<BsCartPlus />}>
           Adicionar ao carrinho
-        </CustomButton>
+        </CustomButton> 
       </Styles.ProductImage>
-
-      <Styles.ProductInfo>
+      <Styles.ProductInfo>    
         <p>{product.name}</p>
         <p>R${product.price}</p>
       </Styles.ProductInfo>

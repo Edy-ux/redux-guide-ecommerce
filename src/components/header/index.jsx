@@ -1,48 +1,57 @@
+//libs
+
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
+// import { slide as Menu } from 'react-burger-menu'
 
 // Components
-import Cart from "../cart/index";
-
+import Cart from "../cart/index"; 
+//actions
+import { userLogin } from "../../redux/users/actions";
 // Styles
 import * as Styles from "./styles";
 
-// Utilities
-import { loginUser, logoutUser } from "../../redux/user/actions";
+//assets 
+import cartSvg from '../../assets/cart.svg'
+
+
 
 function Header() {
+
+  const state = useSelector((rootReducer) => rootReducer.userReducer)
+  const dispatch = useDispatch()
+  console.log(state)
   const [cartIsVisible, setCartIsVisible] = useState(false);
 
-  const dispatch = useDispatch();
-
-  const { currentUser } = useSelector((state) => state.userReducer);
-
-  const handleCartClick = () => {
-    setCartIsVisible(true);
-  };
-
-  const handleLoginClick = () => {
-    dispatch(loginUser({ name: "Felipe Rocha", email: "felipe@rocha.com" }));
-  };
-
-  const handleLogoutClick = () => {
-    dispatch(logoutUser());
-  };
+  const signInLogouOut = () => {
+    dispatch(userLogin({ user: "Felipe", email: 'user@rmail', userIsLogged:!state.userIsLogged}))
+  }
+  const handleCartClick = () => setCartIsVisible(true);
 
   return (
     <Styles.Container>
-      <Styles.Logo>Redux Shopping</Styles.Logo>
+      <Styles.Logo>
+        <img src="https://d33wubrfki0l68.cloudfront.net/0834d0215db51e91525a25acf97433051f280f2f/c30f5/img/redux.svg" alt="Redux Logo" className="themedImage_ToTc themedImage--light_HNdA"/>
+          <p>Redux</p>
+        <span>Shopping</span>
+      </Styles.Logo>
       <Styles.Buttons>
-        {currentUser ? (
-          <div onClick={handleLogoutClick}>Sair</div>
-        ) : (
-          <div onClick={handleLoginClick}>Login</div>
-        )}
-
-        <div onClick={handleCartClick}>Carrinho</div>
+        <Styles.LinksContainer> 
+          <nav>
+            <ul>
+              <li onClick={signInLogouOut}>{!state.userIsLogged ? 'Login' : 'Sair'}</li>
+              <li>Moda</li>
+              <li>Verão</li>
+              <li>Contato</li>
+            </ul>
+          </nav>
+          <img onClick={handleCartClick} src={cartSvg} alt="cart" title="carrinho" />
+          <span style={{ fontWeight: '600', color: 'black' }} >{'5'}</span>
+        </Styles.LinksContainer>
+         
       </Styles.Buttons>
-
-      <Cart isVisible={cartIsVisible} setIsVisible={setCartIsVisible} />
+      
+      <Cart isVisible={cartIsVisible} setIsVisible={setCartIsVisible}/>
     </Styles.Container>
   );
 }

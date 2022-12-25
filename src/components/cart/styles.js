@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
+  z-index: 0;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -14,6 +15,7 @@ export const CartContainer = styled.div`
   visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
   opacity: ${(props) => (props.isVisible ? "1" : "0")};
   transition: all 0.3s ease;
+  
 
   p {
     color: #222222;
@@ -29,17 +31,42 @@ export const CartContent = styled.div`
   min-width: 500px;
   z-index: 200;
   background-color: white;
-  padding: 20px;
+  padding: 15px;
   overflow-y: scroll;
+
+  
 
   @media (max-width: 768px) {
     min-width: 85%;
   }
 `;
+
+export const CartHeader = styled.div`
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 50px;
+ div:not(:first-child){
+  cursor: pointer;
+ }
+
+ div {
+  position: relative;
+ }
+ 
+ div span {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  margin-right: 10px;
+  color: white;
+ }
+  
+  `
 export const CartTitle = styled.p`
+  
   font-size: 1.325rem;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-weight: 400;
 `;
 export const CartTotal = styled.p`
   font-weight: 600;

@@ -3,13 +3,11 @@ import styled from "styled-components";
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  
 `;
 
 export const ProductInfo = styled.div`
+
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
@@ -17,12 +15,14 @@ export const ProductInfo = styled.div`
   p {
     font-size: 1rem;
     font-weight: 500;
+    font-family: "Poppins" !important;
   }
 `;
 
+
 export const ProductImage = styled.div`
   background-image: ${(props) => `url('${props.imageUrl}')`};
-  height: 380px;
+  height:380px;
   width: 300px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -35,11 +35,21 @@ export const ProductImage = styled.div`
   background-color: transparent;
   background-blend-mode: color;
 
+  @media (max-width: 780px) {
+    height: 320px;
+    width:  260px;
+    justify-content: center
+    
+    
+  }
+ 
+
   button {
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s ease;
     margin: 20px;
+    font-family: "Poppins" !important;
   }
 
   &:hover {
@@ -53,7 +63,5 @@ export const ProductImage = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+ 
 `;
