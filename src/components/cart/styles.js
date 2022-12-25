@@ -31,10 +31,9 @@ export const CartContent = styled.div`
   min-width: 500px;
   z-index: 200;
   background-color: white;
-  padding: 15px;
+  padding: 10px;
   overflow-y: scroll;
 
-  
 
   @media (max-width: 768px) {
     min-width: 85%;
@@ -56,7 +55,7 @@ export const CartHeader = styled.div`
  
  div span {
   position: absolute;
-  top: 13px;
+  top: 9px;
   right: 10px;
   margin-right: 10px;
   color: white;

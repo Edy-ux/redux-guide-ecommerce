@@ -54,6 +54,7 @@ export const Buttons = styled.div`
   }
   nav ul li::after {
   /* color: red; */
+
   content: "";
   position: absolute;
   width: 100%;
@@ -98,7 +99,6 @@ nav ul li:hover {
   }
   
 `;
-
 
 export const LinksContainer = styled.div`
     display:  flex;
