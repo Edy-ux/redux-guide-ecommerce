@@ -1,9 +1,19 @@
 // Styles
 import * as Styles from "./styles";
 import cartSvg from '../../assets/cart.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { addProductsCart } from "../../redux/cart/action";
 
 const Cart = ({ isVisible, setIsVisible }) => {
+
   const handleEscapeAreaClick = () => setIsVisible(false);
+
+  //get initialState from rootReducer store
+
+  const { products } = useSelector(rootReducer => rootReducer.CartReducer)
+  const dispatch = useDispatch()
+
+ 
 
   return (
 

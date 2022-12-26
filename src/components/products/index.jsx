@@ -1,4 +1,7 @@
-import products from "../../data/products";
+import data from "../../data/products";
+
+import { useSelector, useDispatch } from 'react-redux'
+import { addProductsCart } from "../../redux/cart/action";
 
 // Components
 import ProductItem from "../product-item/index";
@@ -7,10 +10,20 @@ import ProductItem from "../product-item/index";
 import * as Styles from "./styles";
 
 const Products = () => {
+
+  const { products } = useSelector(rootReducer => rootReducer.CartReducer)
+  const dispatch = useDispatch()
+
+  // console.log(products)
+  const handleProductCart = ({id, price, name, imageUrl}) => {
+    // console.log({id, price, name, imageUrl});=
+    dispatch(addProductsCart({id, price, name, imageUrl}))
+  }
+
   return (
     <Styles.Container>
-      {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
+      {data.map((product) => (
+        <ProductItem key={product.id} product={product} handleProductCart={() => handleProductCart({...product})}/>
       ))}
     </Styles.Container>
   );

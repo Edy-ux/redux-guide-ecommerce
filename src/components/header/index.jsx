@@ -20,7 +20,7 @@ function Header() {
 
   const state = useSelector((rootReducer) => rootReducer.userReducer)
   const dispatch = useDispatch()
-  console.log(state)
+  // console.log(state)
   const [cartIsVisible, setCartIsVisible] = useState(false);
 
   const signInLogouOut = () => {
