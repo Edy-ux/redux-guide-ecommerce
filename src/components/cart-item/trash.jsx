@@ -5,7 +5,7 @@ export function Trash({ onClick }) {
         onClick={onClick}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        stroke="#fe103a"
+        stroke="gray"
         height="15px"
         className="w-6 h-6"
         viewBox="0 0 24 24"

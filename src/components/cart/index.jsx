@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import CartItem from "../cart-item/";
 import { addProductsCart } from "../../redux/cart/action";
 import { useMemo } from "react";
-
+import { selecteProductsTotalPrice } from "../../redux/cart/cart-selectors";
 const Cart = ({ isVisible, setIsVisible }) => {
 
   const handleEscapeAreaClick = () => setIsVisible(false);
@@ -14,10 +14,13 @@ const Cart = ({ isVisible, setIsVisible }) => {
   const { products } = useSelector(rootReducer => rootReducer.CartReducer)
   const dispatch = useDispatch()
 
+  const productsTotalPrice = useSelector(selecteProductsTotalPrice)
+
   const productsCart = useMemo(() =>
     products.reduce((acc, curr) => acc + curr.quantity, 0),
     [products])
-    
+
+
   return (
     <Styles.CartContainer isVisible={isVisible}>
       <Styles.CartEscapeArea onClick={handleEscapeAreaClick} />
@@ -26,13 +29,17 @@ const Cart = ({ isVisible, setIsVisible }) => {
           <Styles.CartTitle >Seu carrinho de compras</Styles.CartTitle>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <img src={cartSvg} alt="cart" title="carrinho" />
-            <p style={{ fontWeight: 'bold', color: 'black' }}>{productsCart }</p>
+            <p style={{ fontWeight: 'bold', color: 'black' }}>{productsCart}</p>
             {/* <span onClick={handleEscapeAreaClick} title="Fechar">X</span> */}
           </div>
         </Styles.CartHeader>
         {products.map(product => (
           <CartItem key={product.id} {...product} />
         ))}
+        <Styles.CartTotal>
+          Total: R$ {productsTotalPrice}
+        </Styles.CartTotal>
+
       </Styles.CartContent>
     </Styles.CartContainer>
   );

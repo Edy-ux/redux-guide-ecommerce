@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
+
   z-index: 0;
   position: fixed;
   height: 100vh;
+  color: #0F1111;
   width: 100vw;
   right: 0;
   bottom: 0;
@@ -17,7 +19,8 @@ export const CartContainer = styled.div`
   transition: all 0.3s ease;
   
   p {
-    color: #222222;
+    color: #0F1111;
+    font-size: 1.1rem;
   }
 `;
 
@@ -28,7 +31,7 @@ export const CartEscapeArea = styled.div`
 export const CartContent = styled.div`
   height: 100%;
   min-width: 500px;
-  padding: 10px;
+  padding: 30px;
   z-index: 200;
   background-color: white;
   overflow-y: scroll;

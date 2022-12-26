@@ -6,26 +6,26 @@ import { Trash } from './trash'
 
 // Styles
 import * as Styles from "./styles";
-import { addQuantityCart } from "../../redux/cart/action"; 
-import { removeProductFromCart } from "../../redux/cart/action"; 
+import { decreaseQuantityProductCart } from "../../redux/cart/action";
+import { removeProductFromCart, increaseQuantityProductCart } from "../../redux/cart/action";
 
 
 const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
 
   const dispatch = useDispatch()
   const handleRemoveClick = () => {
-    dispatch(removeProductFromCart({id}))
+    dispatch(removeProductFromCart({ id }))
   };
 
   const handleIncreaseClick = () => {
-
+    dispatch(increaseQuantityProductCart({ id }))
   };
 
   const handleDecreaseClick = () => {
-    dispatch(addQuantityCart({id}))
+    dispatch(decreaseQuantityProductCart({ id }))
   };
 
- 
+
   return (
 
     <Styles.CartItemContainer>
