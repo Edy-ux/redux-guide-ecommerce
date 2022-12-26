@@ -1,46 +1,56 @@
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai";
 
+import { useDispatch } from "react-redux";
+//components
+import { Trash } from './trash'
+
 // Styles
-import * as Styles from "./cart-item.styles";
+import * as Styles from "./styles";
+import { addQuantityCart } from "../../redux/cart/action"; 
+import { removeProductFromCart } from "../../redux/cart/action"; 
 
-const CartItem = ({ product }) => {
-  const handleRemoveClick = () => {};
 
-  const handleIncreaseClick = () => {};
+const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
 
-  const handleDecreaseClick = () => {};
+  const dispatch = useDispatch()
+  const handleRemoveClick = () => {
+    dispatch(removeProductFromCart({id}))
+  };
 
+  const handleIncreaseClick = () => {
+
+  };
+
+  const handleDecreaseClick = () => {
+    dispatch(addQuantityCart({id}))
+  };
+
+ 
   return (
+
     <Styles.CartItemContainer>
-      <Styles.CartItemImage imageUrl={product.imageUrl} />
-
+      <Styles.CartItemImage imageUrl={imageUrl} />
       <Styles.CartItemInfo>
-        <p>{product.name}</p>
-        <p>R${product.price}</p>
-
+        <p>{name}</p>
+        <p>R${totalPrice ?? price}</p>
         <Styles.CartItemQuantity>
           <AiOutlineMinus
             size={20}
             onClick={handleDecreaseClick}
-            aria-label={`Decrease quantity of ${product.name}`}
+            aria-label={`Decrease quantity of ${name}`}
           />
-          <p>{product.quantity}</p>
+          <p>{quantity}</p>
           <AiOutlinePlus
             size={20}
             onClick={handleIncreaseClick}
-            aria-label={`Increase quantity of ${product.name}`}
+            aria-label={`Increase quantity of ${name}`}
           />
         </Styles.CartItemQuantity>
       </Styles.CartItemInfo>
-
-      <Styles.RemoveButton
-        onClick={handleRemoveClick}
-        aria-label={`Remove ${product.name}`}
-      >
-        <AiOutlineClose size={25} />
-      </Styles.RemoveButton>
+      <Trash size={20} onClick={handleRemoveClick} />
     </Styles.CartItemContainer>
-  );
+  )
+
 };
 
 export default CartItem;

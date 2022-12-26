@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-items: center;
   padding: 40px;
   grid-row-gap: 20px;
-
+  margin-top: 40px;
   width: 100%;
   @media (max-width: 1160px) {
 

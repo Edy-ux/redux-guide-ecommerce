@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CartItemContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 15px;
-
+ 
   p {
     color: #222222;
   }
@@ -53,10 +53,4 @@ export const CartItemQuantity = styled.div`
   }
 `;
 
-export const RemoveButton = styled.div`
-  margin-right: 20px;
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
