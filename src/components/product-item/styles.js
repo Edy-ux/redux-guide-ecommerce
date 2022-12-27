@@ -7,7 +7,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const ProductInfo = styled.div`
-
+  color: #565959!important;
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
@@ -21,6 +21,7 @@ export const ProductInfo = styled.div`
 
 
 export const ProductImage = styled.div`
+
   background-image: ${(props) => `url('${props.imageUrl}')`};
   height:300px;
   width: 250px;
@@ -42,6 +43,8 @@ export const ProductImage = styled.div`
     
     
   }
+
+  
 /*  
   button {
     visibility: hidden;
@@ -52,15 +55,11 @@ export const ProductImage = styled.div`
   }
 
    
+   */
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: color;
     cursor: pointer;
-    button {
-      visibility: visible;
-      opacity: 1;
-    }
-  } */
-
- 
+   
+  }
 `;

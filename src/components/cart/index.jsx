@@ -4,18 +4,19 @@ import cartSvg from '../../assets/cart.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import CartItem from "../cart-item/";
 import { addProductsCart } from "../../redux/cart/action";
-import { useMemo } from "react";
-import { selecteProductsTotalPrice } from "../../redux/cart/cart-selectors";
-const Cart = ({ isVisible, setIsVisible }) => {
+import { useMemo, useState } from "react";
+import { selectProductsTotalPrice } from "../../redux/cart/cart-selectors";
 
-  const handleEscapeAreaClick = () => setIsVisible(false);
+const Cart = ({setIsVisible, isVisible}) => {
 
   //get initialState from rootReducer store
   const { products } = useSelector(rootReducer => rootReducer.CartReducer)
+  const productsTotalPrice = useSelector(selectProductsTotalPrice)
+
   const dispatch = useDispatch()
 
-  const productsTotalPrice = useSelector(selecteProductsTotalPrice)
-
+  const handleEscapeAreaClick = () => setIsVisible(false);
+  
   const productsCart = useMemo(() =>
     products.reduce((acc, curr) => acc + curr.quantity, 0),
     [products])
@@ -39,7 +40,6 @@ const Cart = ({ isVisible, setIsVisible }) => {
         <Styles.CartTotal>
           Total: R$ {productsTotalPrice}
         </Styles.CartTotal>
-
       </Styles.CartContent>
     </Styles.CartContainer>
   );

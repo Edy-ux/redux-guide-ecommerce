@@ -24,20 +24,23 @@ export const CartItemImage = styled.div`
 
 
 export const CartItemInfo = styled.div`
+color: #565959!important;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  flex: 1;
-
+  /* flex: 1; */
+  
   p:nth-child(1) {
-    font-weight: 600;
+    color: #565959!important;
+    font-weight: 400;
     margin-bottom: 5px;
   }
-
   p:nth-child(2) {
-    font-weight: 500;
+    font-weight: 400;
   }
+
 `;
+
 
 export const CartItemQuantity = styled.div`
   display: flex;
@@ -45,12 +48,8 @@ export const CartItemQuantity = styled.div`
   margin-top: 10px;
 
   p {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  svg:hover {
-    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 `;
 

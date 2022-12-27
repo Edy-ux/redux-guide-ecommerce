@@ -20,22 +20,25 @@ import cartSvg from '../../assets/cart.svg'
 
 
 function Header() {
+  const [cartIsVisible, setCartIsVisible] = useState(false);
 
   const { userIsLogged } = useSelector((rootReducer) => rootReducer.userReducer)
   const { products } = useSelector((rootReducer) => rootReducer.CartReducer)
 
+ 
   const productsCart = useMemo(() =>
     products.reduce((acc, curr) => acc + curr.quantity, 0),
     [products])
 
+  const handleCartClick = () => setCartIsVisible(true)
   const dispatch = useDispatch()
   // console.log(state)
-  const [cartIsVisible, setCartIsVisible] = useState(false);
+
 
   const signInLogouOut = () => {
     dispatch(userLogin({ user: "Felipe", email: 'user@rmail', userIsLogged: !userIsLogged }))
   }
-  const handleCartClick = () => setCartIsVisible(true);
+
 
   return (
     <Styles.Container>

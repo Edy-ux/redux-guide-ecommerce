@@ -11,6 +11,12 @@ import * as Styles from "./styles";
 // Utilities
 
 const ProductItem = ({ product }) => {
+
+  
+  const formatCurrency  = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+   currency: "BRL"
+})
   const dispatch = useDispatch()
 
   const handleProductClick = () => {
@@ -23,7 +29,7 @@ const ProductItem = ({ product }) => {
       </Styles.ProductImage>
       <Styles.ProductInfo>
         <p>{product.name}</p>
-        <p>R${product.price}</p>
+        <p><span>R$</span> {formatCurrency.format(product.price)}</p>
       </Styles.ProductInfo>
     </Styles.ProductContainer>
   );

@@ -15,6 +15,13 @@ import * as Styles from "./styles";
 
 const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
 
+  //formatCurrency
+const formatCurrency  = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+   currency: "BRL"
+})
+  const total = formatCurrency.format(totalPrice)
+  const priceItem = formatCurrency.format(price)
   const dispatch = useDispatch()
 
   const handleRemoveClick = () => {
@@ -34,7 +41,7 @@ const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
       <Styles.CartItemImage imageUrl={imageUrl} />
       <Styles.CartItemInfo>
         <p>{name}</p>
-        <p>R${totalPrice ?? price}</p>
+        <p>{priceItem}</p>
         <Styles.CartItemQuantity>
           <AiOutlineMinus
             size={20}
@@ -48,9 +55,8 @@ const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
             aria-label={`Increase quantity of ${name}`}
           />
         </Styles.CartItemQuantity>
-       
       </Styles.CartItemInfo>
-      <AiOutlineClose onClick={handleRemoveClick} />
+      <AiOutlineClose style={{color: 'red', marginBottom: '5px'}} onClick={handleRemoveClick} />
     </Styles.CartItemContainer>
   )
 
