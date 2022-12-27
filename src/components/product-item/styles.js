@@ -42,8 +42,7 @@ export const ProductImage = styled.div`
     
     
   }
- 
-
+/*  
   button {
     visibility: hidden;
     opacity: 0;
@@ -52,16 +51,16 @@ export const ProductImage = styled.div`
     font-family: "Poppins" !important;
   }
 
+   
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: color;
     cursor: pointer;
-
     button {
       visibility: visible;
       opacity: 1;
     }
-  }
+  } */
 
  
 `;

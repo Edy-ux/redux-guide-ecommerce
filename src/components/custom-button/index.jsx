@@ -3,13 +3,13 @@ import React from "react";
 // Styles
 import * as Styles from "./styles";
 
-const CustomButton = ({ children, startIcon, ...rest }) => {
+const CustomButton = ({ startIcon, ...rest }) => {
 
   return (
     <Styles.CustomButtonContainer {...rest}>
       {startIcon && <Styles.IconContainer>{startIcon}</Styles.IconContainer>}
 
-      {children}
+      Adicionar ao carrinho
     </Styles.CustomButtonContainer>
   );
 };

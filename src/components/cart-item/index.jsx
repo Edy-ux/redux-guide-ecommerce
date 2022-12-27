@@ -4,15 +4,19 @@ import { useDispatch } from "react-redux";
 //components
 import { Trash } from './trash'
 
-// Styles
-import * as Styles from "./styles";
+//actions 
 import { decreaseQuantityProductCart } from "../../redux/cart/action";
 import { removeProductFromCart, increaseQuantityProductCart } from "../../redux/cart/action";
+
+// Styles
+import * as Styles from "./styles";
+
 
 
 const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
 
   const dispatch = useDispatch()
+
   const handleRemoveClick = () => {
     dispatch(removeProductFromCart({ id }))
   };
@@ -24,8 +28,6 @@ const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
   const handleDecreaseClick = () => {
     dispatch(decreaseQuantityProductCart({ id }))
   };
-
-
   return (
 
     <Styles.CartItemContainer>
@@ -46,8 +48,9 @@ const CartItem = ({ imageUrl, name, quantity, totalPrice, price, id }) => {
             aria-label={`Increase quantity of ${name}`}
           />
         </Styles.CartItemQuantity>
+       
       </Styles.CartItemInfo>
-      <Trash size={20} onClick={handleRemoveClick} />
+      <AiOutlineClose onClick={handleRemoveClick} />
     </Styles.CartItemContainer>
   )
 

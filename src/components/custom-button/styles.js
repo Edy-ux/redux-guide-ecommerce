@@ -17,9 +17,23 @@ export const CustomButtonContainer = styled.button`
   font-weight: 600;
   transition: all 0.5s ease;
 
-  &:hover {
+    visibility: visible;
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin: 20px;
+    font-family: "Poppins" !important;
+
+   
+    &:hover {
+      opacity: 1;
+      /* visibility: v; */
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: color;
     cursor: pointer;
-    background-color: #000000;
+    button {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 `;
 

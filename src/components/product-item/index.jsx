@@ -19,9 +19,7 @@ const ProductItem = ({ product }) => {
   return (
     <Styles.ProductContainer>
       <Styles.ProductImage imageUrl={product.imageUrl}>
-        <CustomButton startIcon={<BsCartPlus />} onClick={handleProductClick}>
-          Adicionar ao carrinho
-        </CustomButton>
+        <CustomButton startIcon={<BsCartPlus />} onClick={handleProductClick} />
       </Styles.ProductImage>
       <Styles.ProductInfo>
         <p>{product.name}</p>
